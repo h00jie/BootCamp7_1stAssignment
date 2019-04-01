@@ -40,21 +40,6 @@ public class CourseUserInput extends AbstractUserInput{
         course.setStartDate(scanDate());
         System.out.println("End Date :");
         course.setEndDate(scanDate());
-//        System.out.println("Please give me student's ID that you want\n"+
-//                "to be added into this Course.");
-//        String studentIds = scanText();
-//        List<Integer>  studentIdInt = getIdsFromString(studentIds);
-//        System.out.println(studentIdInt);
-//        for (Integer studentId : studentIdInt){
-//            Student student = studentManager.getStudentById(studentId);
-//            System.out.println(student.toString());
-//            if (student != null) {
-//                course.getStudents().add(student);
-//            } else {
-//                System.out.println("Student not found: " + studentId);
-//            }
-//        }
-
         return course;
     }
 

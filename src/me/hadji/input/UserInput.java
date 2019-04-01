@@ -80,13 +80,7 @@ public class UserInput {
             } else if (choice == 7) {
                 System.out.println(school.getAssignmentManager().getAssignments().toString());
             } else if (choice == 8) {
-                System.out.println("please give me course id");
                 courseUserInput.addStudentsToCourse();
-//            String courseidnrs = input.next();
-//            Course existingCourse = school.getCourseManager().getCourseById(courseidnrs);
-//            System.out.println(existingCourse.toString());
-//            courseUserInput.printUsageStudent();
-//            courseUserInput.addStudentsToCourse();
             } else if (choice == 9) {
 
             } else {
