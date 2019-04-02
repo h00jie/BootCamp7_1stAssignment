@@ -16,6 +16,7 @@ public class Course {
     private LocalDate endDate;
     private String courseId;
 
+    public  Course(){}
 //    public Course(List<Trainer> trainers, List<Student> students, List<Assignment> assignments, String title, String stream, LocalDate startDate, LocalDate endDate) {
 //        this.trainers = trainers;
 //        this.students = students;

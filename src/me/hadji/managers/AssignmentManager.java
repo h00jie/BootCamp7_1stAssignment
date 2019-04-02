@@ -26,6 +26,12 @@ public class AssignmentManager {
         assignmentIDSequence += 10;
         return assignmentID;
     }
-
-
+    public Assignment getAssignmentById(String assignmentId) {
+        for (Assignment assignment : getAssignments()) {
+            if (assignment.getAssignmentID().equals(assignmentId)) {
+                return assignment;
+            }
+        }
+        return null;
+    }
 }

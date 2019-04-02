@@ -29,7 +29,7 @@ public abstract class AbstractUserInput {
     public void scanUsage() {
     }
 
-    private void printFalseOption() {
+    protected void printFalseOption() {
         System.out.println("Invalid Choice");
     }
 
@@ -50,7 +50,7 @@ public abstract class AbstractUserInput {
 
     protected String scanText() throws ExitToMainException{
         String info = input.next();
-        if (info.equals("exit")) {
+        if (info.equals("exit") || (info.equals("EXIT"))) {
             throw new ExitToMainException();
         }
         return info;
@@ -79,6 +79,20 @@ public abstract class AbstractUserInput {
             }
         }
         return integers;
+    }
+
+    protected List<String> getStringIdsFromStringArray(String stringIDS) {
+        String[] stringIds = stringIDS.split(",");
+        List<String> strings = new ArrayList<>();
+
+        for (String stringID : stringIds) {
+            try {
+                strings.add(stringID.trim());
+            } catch (NumberFormatException e) {
+                System.out.println(stringID + " is not a number");
+            }
+        }
+        return strings;
     }
 
 

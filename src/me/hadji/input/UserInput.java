@@ -9,7 +9,7 @@ import me.hadji.model.Trainer;
 
 import java.util.Scanner;
 
-public class UserInput {
+public class UserInput extends AbstractUserInput{
 
 
     Scanner input;
@@ -20,16 +20,18 @@ public class UserInput {
     AssignmentUserInput assignmentUserInput;
 
     private static final String BASIC_USAGE = "Wellcome to School Admin. Please select an action by keying in a number:\n" +
-            "0) add student\n" +
-            "1) print students\n" +
-            "2) add Trainer\n" +
-            "3) print trainers\n"+
-            "4) add course \n"+
-            "5) print courses\n"+
-            "6) add assignments\n"+
-            "7) print assignments\n"+
-            "8) add student to course\n"+
-            "9) add trainer to course\n"+
+            "0)  add student\n" +
+            "1)  print students\n" +
+            "2)  add Trainer\n" +
+            "3)  print trainers\n"+
+            "4)  add course \n"+
+            "5)  print courses\n"+
+            "6)  add assignments\n"+
+            "7)  print assignments\n"+
+            "8)  add student to course\n"+
+            "9)  add trainer to course\n"+
+            "10) add assignment to course\n\n"+
+            "Type EXIT to back to Main User Entry qq\n"+
             "";
 
 
@@ -82,8 +84,10 @@ public class UserInput {
             } else if (choice == 8) {
                 courseUserInput.addStudentsToCourse();
             } else if (choice == 9) {
-
-            } else {
+                courseUserInput.addTrainersToCourse();
+            } else if (choice == 10) {
+                courseUserInput.addAssignmentsToCourse();
+            }else {
                 printFalseOption();
             }
         } catch (NumberFormatException nfe) {
@@ -94,12 +98,6 @@ public class UserInput {
             printUsage();
             scanUsage();
         }
-    }
-
-
-
-    private void printFalseOption() {
-        System.out.println("Invalid Choice");
     }
 
 }

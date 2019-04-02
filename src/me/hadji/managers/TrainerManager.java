@@ -21,4 +21,13 @@ public class TrainerManager {
         trainers.add(trainer);
         System.out.println("Trainer added: " + trainer.toString());
     }
+
+    public Trainer getTrainerById(int trainerId) {
+        for (Trainer trainer : getTrainers()) {
+            if (trainer.getTrainerId() == trainerId) {
+                return trainer;
+            }
+        }
+        return null;
+    }
 }
