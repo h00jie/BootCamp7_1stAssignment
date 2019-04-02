@@ -58,16 +58,4 @@ public class Trainer {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Trainer)) return false;
-        Trainer trainer = (Trainer) o;
-        return getTrainerId() == trainer.getTrainerId();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getTrainerId());
-    }
 }

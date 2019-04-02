@@ -131,7 +131,7 @@ public class CourseUserInput extends AbstractUserInput{
         for (String assignmentId : assignmentIdsInt){
             Assignment assignment= assignmentManager.getAssignmentById(assignmentId);
             if (assignment == null) {
-                System.out.println("Trainer not found: " + assignmentId);
+                System.out.println("Assignment not found: " + assignmentId);
             } else {
                 existingCourse.getAssignments().add(assignment);
                 System.out.println(assignment.toString());

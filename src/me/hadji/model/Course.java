@@ -28,7 +28,7 @@ public class Course {
 //    }
 
     public List getTrainers() {
-        return trainers;
+        return trainers = new ArrayList<>();
     }
 
     public List getStudents() {
@@ -130,23 +130,11 @@ public class Course {
     }
 
     public List<Assignment> getAssignments() {
-        return assignments;
+        return assignments = new ArrayList<>();
     }
 
     public void setAssignments(List<Assignment> assignments) {
         this.assignments = assignments;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Course)) return false;
-        Course course = (Course) o;
-        return getCourseId().equals(course.getCourseId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getCourseId());
-    }
 }
