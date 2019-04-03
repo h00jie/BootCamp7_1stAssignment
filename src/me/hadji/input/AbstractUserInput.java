@@ -4,6 +4,7 @@ import com.sun.javaws.exceptions.ExitException;
 import me.hadji.Main;
 import me.hadji.exception.ExitToMainException;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -93,6 +94,30 @@ public abstract class AbstractUserInput {
             }
         }
         return strings;
+    }
+
+    protected LocalDate scanDateValidation() throws ExitToMainException{
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        System.out.println("Formated like this DD/MM/YYYY");
+        String date = scanText();
+        LocalDate localDate = LocalDate.now();
+        try {
+            localDate = LocalDate.parse(date, formatter);
+            System.out.println(localDate.getDayOfWeek().name());
+            if(localDate.getDayOfWeek().name().equals("SUNDAY") || localDate.getDayOfWeek().name().equals("SATURDAY")){
+
+                System.out.println("You cannot submit assignments on weekends\n"+
+                        "please choose a date during week");
+                scanDateValidation();
+            }else{
+                System.out.println("You can submmit the Assignment");
+            }
+        } catch (DateTimeParseException dtpe) {
+            System.out.println("Invalid date format");
+            this.scanDate();
+        }
+
+        return  localDate;
     }
 
 

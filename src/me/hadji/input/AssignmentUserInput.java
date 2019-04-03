@@ -18,7 +18,8 @@ public class AssignmentUserInput extends AbstractUserInput{
         String description = scanText();
         assignment.setDescription(description);
         System.out.println("Submission Date: ");
-        LocalDate date = scanDate();
+//        LocalDate date = scanDate();
+        LocalDate date = scanDateValidation();
         assignment.setSubmissionDateTime(date);
         System.out.println("Oral Mark: ");
         int oralMark = scanInt();
