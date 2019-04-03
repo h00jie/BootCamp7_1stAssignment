@@ -2,11 +2,13 @@ package me.hadji.input;
 
 import me.hadji.exception.ExitToMainException;
 import me.hadji.init.School;
+import me.hadji.managers.CourseManager;
 import me.hadji.model.Assignment;
 import me.hadji.model.Course;
 import me.hadji.model.Student;
 import me.hadji.model.Trainer;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInput extends AbstractUserInput{
@@ -30,7 +32,13 @@ public class UserInput extends AbstractUserInput{
             "7)  print assignments\n"+
             "8)  add student to course\n"+
             "9)  add trainer to course\n"+
-            "10) add assignment to course\n\n"+
+            "10) add assignment to course\n"+
+            "11) add assignment to student\n"+
+            "12) students per course\n"+
+            "13) trainers per course\n"+
+            "14) assignments per course\n"+
+            "15) assignments per student\n\n"+
+
             "Type EXIT to back to Main User Entry qq\n"+
             "";
 
@@ -38,7 +46,7 @@ public class UserInput extends AbstractUserInput{
     public UserInput(School school) {
         this.input = new Scanner(System.in);
         this.school = school;
-        this.studentUserInput = new StudentUserInput();
+        this.studentUserInput = new StudentUserInput(school);
         this.trainerUserInput = new TrainerUserInput();
         this.courseUserInput = new CourseUserInput(school);
         this.assignmentUserInput = new AssignmentUserInput();
@@ -87,6 +95,24 @@ public class UserInput extends AbstractUserInput{
                 courseUserInput.addTrainersToCourse();
             } else if (choice == 10) {
                 courseUserInput.addAssignmentsToCourse();
+            }else if (choice == 11){
+                studentUserInput.addAssignmentsToStudent();
+            }else if (choice ==12) {
+                List<Course> courses= school.getCourseManager().getCourses();
+                for (Course course:courses){
+                    System.out.println(course.toStringStudents());}
+            }else if (choice ==13) {
+                List<Course> courses= school.getCourseManager().getCourses();
+                for (Course course:courses){
+                    System.out.println(course.toStringTrainers());}
+            }else if (choice ==14) {
+                List<Course> courses= school.getCourseManager().getCourses();
+                for (Course course:courses){
+                    System.out.println(course.toStringAssignments());}
+            }else if (choice ==15) {
+                List<Student> students= school.getStudentManager().getStudents();
+                for (Student student:students){
+                    System.out.println(student.toStrinAssignmentsPerStudent());}
             }else {
                 printFalseOption();
             }

@@ -2,6 +2,8 @@ package me.hadji.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Student {
@@ -11,8 +13,10 @@ public class Student {
     private LocalDate dateOfBirth;
     private int tuitionFees=2500;
     private int studentId;
+    private List<Assignment> assignmentsForStudent;
 
     public Student() {
+        this.assignmentsForStudent = new ArrayList<>();
     }
 
     public Student(String firstName, String lastName, LocalDate dateOfBirth) {
@@ -54,6 +58,9 @@ public class Student {
         this.lastName = lastName;
         return this;
     }
+    public List<Assignment> getAssignmentsForStudent() {
+        return assignmentsForStudent;
+    }
 
     @Override
     public String toString() {
@@ -65,5 +72,16 @@ public class Student {
                 ", student id='" + studentId + '\'' +
                 '}';
     }
-    
+
+
+    public String toStrinAssignmentsPerStudent() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth.format(DateTimeFormatter.ofPattern("d/MM/yyyy")) + '\'' +
+                ", tuitionFees=" + tuitionFees +
+                ", studentId=" + studentId +
+                ", assignmentsForStudent=" + assignmentsForStudent +
+                '}';
+    }
 }

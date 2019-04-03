@@ -1,5 +1,6 @@
 package me.hadji.managers;
 
+import me.hadji.model.Assignment;
 import me.hadji.model.Student;
 
 import java.util.ArrayList;
@@ -9,11 +10,12 @@ import java.util.Optional;
 public class StudentManager {
 
     private List<Student> students;
+
     public int studentIDSequence =1000;
+
     public StudentManager() {
         this.students = new ArrayList<>();
-//        students.add(new Student("Christos", "Goros"));
-//        students.add(new Student("Panos", "Hadjikonstantinou"));
+
     }
 
     public List<Student> getStudents() {
@@ -35,4 +37,5 @@ public class StudentManager {
         }
         return null;
     }
+
 }
