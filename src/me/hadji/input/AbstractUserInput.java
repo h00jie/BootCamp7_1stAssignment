@@ -114,7 +114,7 @@ public abstract class AbstractUserInput {
             }
         } catch (DateTimeParseException dtpe) {
             System.out.println("Invalid date format");
-            this.scanDate();
+            this.scanDateValidation();
         }
 
         return  localDate;
